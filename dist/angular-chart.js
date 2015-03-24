@@ -222,9 +222,11 @@
         });
       });
     } else {
-      chart.segments.forEach(function (segment, i) {
-        segment.value = values[i];
-      });
+      if (angular.isDefined(chart.segments)) {
+        chart.segments.forEach(function (segment, i) {
+          segment.value = values[i];
+        });
+      }
     }
     chart.update();
     scope.$emit('update', chart);
